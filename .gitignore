@@ -7,29 +7,3 @@ yarn-error.log*
 .pnp.js
 .pnp.cjs
 
-# Build artifacts
-dist/
-build/
-coverage/
-*.tgz
-
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDE and editor files
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
-# Operating System files
-.DS_Store
-Thumbs.db
-
-# Other common files
-logs/
-temp/

@@ -7,3 +7,6 @@ const mongodbConfig=()=>{
 }
 
 module.exports=mongodbConfig
+
+
+// mongodb+srv://esmern2403:cCg3vbCFgoz2SEbM@cluster0.ql3v7el.mongodb.net/ecom?retryWrites=true&w=majority&appName=Cluster0

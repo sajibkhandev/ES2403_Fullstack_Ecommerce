@@ -4,6 +4,9 @@ const Userlist=require('../models/userSchema')
 const registrationController=(req,res)=>{
    
     let {username,email,password}=req.body
+
+   
+    
   
    if(!username){
     res.send({error:"Please give your username",});
@@ -27,14 +30,10 @@ const registrationController=(req,res)=>{
       data.save()
       res.send(data);
       
+      
      
     
    }
-
-   
-   
-   
-   
 
 
 
