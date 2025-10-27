@@ -20,7 +20,7 @@ const App = () => {
   
   )
 
-    console.log(data.success);
+    console.log(data);
     
 
     
