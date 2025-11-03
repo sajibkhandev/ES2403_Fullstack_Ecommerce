@@ -2,6 +2,7 @@ const emailRegex = require("../helpers/emailRegex");
 const emailVerification = require("../helpers/emailVerification");
 const Userlist = require('../models/userSchema')
 const bcrypt = require('bcrypt');
+const otpGenerator = require('otp-generator')
 
 const registrationController = async (req, res) => {
 
@@ -28,16 +29,24 @@ const registrationController = async (req, res) => {
          res.send({ error: `${existingUser[0].email} email already in used` })
 
       } else {
+
+        let otp=otpGenerator.generate(6, { upperCaseAlphabets: false,specialChars: false ,lowerCaseAlphabets:false});
+        console.log(otp)
+        
+
+
          bcrypt.hash(password, 10, function (err, hash) {
+            
 
             let data = new Userlist({
                username: username,
                email: email,
-               password: hash
+               password: hash,
+               otp:otp
             })
             data.save()
             res.send({ username: data.username, email: data.email });
-            emailVerification(email)
+            emailVerification(email,otp)
 
 
          });
