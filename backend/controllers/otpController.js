@@ -7,8 +7,10 @@ const otpController = async (req, res) => {
     // console.log(existingUser);
    
     if(existingUser){
-        if(existingUser.otp==otp){
-            await Userlist.findOneAndUpdate({email:email},{otp:""})
+
+
+        if(!existingUser.emailVerification && existingUser.otp==otp){
+            await Userlist.findOneAndUpdate({email:email},{otp:"",emailVerification:true})
             res.send("otp match");
         }else{
              res.send("otp not match");

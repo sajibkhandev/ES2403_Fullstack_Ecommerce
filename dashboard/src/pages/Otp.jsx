@@ -1,49 +1,54 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, Checkbox, Form, Input } from 'antd';
 import {useParams} from 'react-router-dom'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
 
 const Otp = () => {
   let params=useParams()
+    let navigate=useNavigate()
   // console.log(params.email);
+  // console.log(params.otpcode);
 
-  const onFinish = async values => {
-     let data= await axios.post("http://localhost:3000/api/v1/authentication/otp",{
+
+  useEffect(()=>{
+
+   async function sendData(){
+      let data= await axios.post("http://localhost:3000/api/v1/authentication/otp",{
       email:params.email,
-      otp:values.otp
+      otp:params.otpcode
 
      })
-     console.log(data);
-    
-  };
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
-  };
-  return (
-    <Form
-      name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      style={{ maxWidth: 600 }}
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <Form.Item
-        label="Otp"
-        name="otp"
-        rules={[{ required: true, message: 'Please input your Otp!' }]}
-      >
-        <Input />
-      </Form.Item>
+     if(data.data=="otp match"){
+      navigate('/login')
 
-      <Form.Item label={null}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+     }else{
+      toast.error("Your verification expiare");
+     }
+
+    }
+    sendData()
+
+  },[])
+
+  return (
+    <>
+    <h1>Please wait for Verifiy......</h1>
+    <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            
+          />
+    </>
   )
 }
 

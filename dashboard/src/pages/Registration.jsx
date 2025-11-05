@@ -25,10 +25,7 @@ const Registration = () => {
       toast.error("This email is used")
     } else {
       toast.success("Registration done")
-      setTimeout(()=>{
-        navigate(`/otp/${values.email}`)
-
-      },2000)
+      
       
     }
 
