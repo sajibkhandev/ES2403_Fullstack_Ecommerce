@@ -4,9 +4,13 @@ const registrationController = require('../../../controllers/registrationControl
 const loginController = require('../../../controllers/loginController')
 const secureApi = require('../../../middlewars/secureApi')
 const otpController = require('../../../controllers/otpController')
+const forgetPasswordController = require('../../../controllers/forgetPasswordController')
+const changePasswordController = require('../../../controllers/changePasswordController')
 
 _.post('/registration',secureApi,registrationController)
 _.post('/otp',otpController)
+_.post('/forgetpassword',forgetPasswordController)
+_.post('/changepassword',changePasswordController)
 
 
 

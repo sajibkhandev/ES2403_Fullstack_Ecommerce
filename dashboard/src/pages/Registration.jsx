@@ -2,13 +2,13 @@ import React from 'react'
 import { Button, Checkbox, Form, Input } from 'antd';
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Registration = () => {
   let navigate=useNavigate()
      const onFinish = async values => {
 
-    let data = await axios.post('http://localhost:3000/api/v1/authentication/registration', {
+    let data = await axios.post('http://localhost:8000/api/v1/authentication/registration', {
       username: values.username,
       email: values.email,
       password: values.password
@@ -96,6 +96,7 @@ const Registration = () => {
           Submit
         </Button>
       </Form.Item>
+      <Link to='/forgetpassword'><p className='ml-32 cursor-pointer'>Forget Password</p></Link>
     </Form>
   )
 }

@@ -31,7 +31,7 @@ const registrationController = async (req, res) => {
       } else {
 
         let otp=otpGenerator.generate(6, { upperCaseAlphabets: false,specialChars: false ,lowerCaseAlphabets:false});
-        console.log(otp)
+      //   console.log(otp)
         
 
 

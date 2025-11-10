@@ -4,7 +4,7 @@ const app = express()
 const route  = require('./route')
 const cors =require('cors')
 const mongodbConfig = require('./dbConfig/mongodbConfig')
-const port = 3000
+const port = 8000
 
 
 mongodbConfig()
