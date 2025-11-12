@@ -49,7 +49,7 @@ const onFinishFailed = errorInfo => {
       name="passward"
       rules={[{ required: true, message: 'Please input your Password!' }]}
     >
-      <Input  type='password'/>
+      <Input.Password/>
     </Form.Item>
 
     

@@ -24,7 +24,7 @@ const Registration = () => {
     if (data.data.error) {
       toast.error("This email is used")
     } else {
-      toast.success("Registration done")
+      toast.success("Registration done Very your Email")
       
       
     }
@@ -93,10 +93,11 @@ const Registration = () => {
 
       <Form.Item label={null}>
         <Button type="primary" htmlType="submit">
-          Submit
+          Sign Up
         </Button>
       </Form.Item>
-      <Link to='/forgetpassword'><p className='ml-32 cursor-pointer'>Forget Password</p></Link>
+     
+      <p className='ml-32 cursor-pointer'>Already have an account? <Link to='/login'><span className='text-lg text-blue-500'> Login</span></Link></p>
     </Form>
   )
 }

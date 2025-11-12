@@ -10,6 +10,7 @@ import Otp from './pages/Otp';
 import Login from './pages/Login';
 import ForgetPassword from './pages/forgetPassword';
 import ChangePassword from './pages/changePassword';
+import Home from './pages/Home';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
     <Route path="/login" element={<Login />}></Route>
     <Route path="/forgetpassword" element={<ForgetPassword/>}></Route>
     <Route path="/changepassword/:email" element={<ChangePassword/>}></Route>
+    <Route path="/home" element={<Home/>}></Route>
     </>
   )
 );

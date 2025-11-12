@@ -23,7 +23,13 @@ const userSchema=new Schema({
         type:Boolean,
         default:false
 
+    },
+    role:{
+        type:String,
+        enum:["user","merchant","admin"],
+        default:"user"
     }
+
     
 })
 module.exports=mongoose.model("Userlist",userSchema)

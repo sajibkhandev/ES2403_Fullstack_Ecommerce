@@ -1,9 +1,8 @@
 const express =require('express')
 const _=express.Router()
-const Registration =require('./authRoute/registration')
-const Login =require('./authRoute/login')
+const AuthRoute =require('./authRoute')
 
-_.use('/authentication',Registration)
-_.use('/authentication',Login)
+_.use('/authentication',AuthRoute)
+
 
 module.exports=_
