@@ -11,6 +11,10 @@ import Login from './pages/Login';
 import ForgetPassword from './pages/forgetPassword';
 import ChangePassword from './pages/changePassword';
 import Home from './pages/Home';
+import ViewCategory from './pages/ViewCategory';
+import AddCategory from './pages/AddCategory';
+import AddSubCategory from './pages/AddSubCategory';
+import ViewSubCategory from './pages/ViewSubCategory';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +24,13 @@ const router = createBrowserRouter(
     <Route path="/login" element={<Login />}></Route>
     <Route path="/forgetpassword" element={<ForgetPassword/>}></Route>
     <Route path="/changepassword/:email" element={<ChangePassword/>}></Route>
-    <Route path="/home" element={<Home/>}></Route>
+    <Route path="/dashboard" element={<Home/>}>
+        <Route path="viewcategory" element={<ViewCategory/>}></Route>
+        <Route path="addcategory" element={<AddCategory/>}></Route>
+        <Route path="addsubcategory" element={<AddSubCategory/>}></Route>
+        <Route path="viewsubcategory" element={<ViewSubCategory/>}></Route>
+
+    </Route>
     </>
   )
 );
