@@ -15,6 +15,7 @@ const Login = () => {
 
     })
     console.log(data);
+    localStorage.setItem("userInfo",JSON.stringify(data.data))
 
     if(data.data.error=="Creditial Inviled"){
       toast.error("Cradiatial Inviled");
@@ -22,10 +23,14 @@ const Login = () => {
     }else if(!data.data.emailVerification){
       toast.error("Very your account")
 
-    }else{
+    }else if(data.data.role=='user'){
+      toast.error("Become a Seller")
+
+    }
+    else{
       toast.success("Login Successful");
        setTimeout(() => {
-        navigate("/home")
+        navigate("/dashboard")
         
       }, 2000)
 

@@ -2,7 +2,14 @@ import React, { use } from 'react'
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
+
+
+let userinfo=JSON.parse(localStorage.getItem('userInfo'))
+   
+
+
 const items = [
+  userinfo.role!="merchant" &&
   {
     key: 'sub1',
     label: 'Admin',
@@ -76,6 +83,8 @@ const items = [
    {
     type: 'divider',
   },
+
+  userinfo.role!="merchant" &&
   {
     key: 'sub7',
     label: 'Discount',
@@ -90,6 +99,9 @@ const items = [
 ];
 
 const Dashboard = () => {
+   
+   
+
     let navigate=useNavigate()
     
   const onClick = e => {
