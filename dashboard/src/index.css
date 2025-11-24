@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+.ant-select{
+    margin-left: 30px;
+    margin-bottom: 20px;
+}

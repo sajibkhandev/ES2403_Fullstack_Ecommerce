@@ -20,7 +20,10 @@ const loginController=async (req,res)=>{
          username:existinguser.username,
          email:existinguser.email,
          emailVerification:existinguser.emailVerification,
-         role:existinguser.role
+         role:existinguser.role,
+         id:existinguser._id
+         
+
 
         })
       }else{
