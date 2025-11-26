@@ -62,8 +62,8 @@ const items = [
     label: 'Product',
     icon: <SettingOutlined />,
     children: [
-      { key: '11', label: 'Add Product' },
-      { key: '12', label: 'View Product' },
+      { key: '/dashboard/addproduct', label: 'Add Product' },
+      { key: '/dashboard/viewproduct', label: 'View Product' },
       
     ],
   },
@@ -75,8 +75,8 @@ const items = [
     label: 'Veriant',
     icon: <SettingOutlined />,
     children: [
-      { key: '13', label: 'Add Veriant' },
-      { key: '14', label: 'View Veriant' },
+      { key: '/dashboard/addveriant', label: 'Add Veriant' },
+      { key: '/dashboard/viewveriant', label: 'View Veriant' },
       
     ],
   },

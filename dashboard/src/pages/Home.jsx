@@ -6,8 +6,8 @@ import Dashboard from '../components/Dashboard';
 const Home = () => {
   return (
     <Row>
-      <Col span={6}><Dashboard/></Col>
-      <Col span={18}>
+      <Col span={4}><Dashboard/></Col>
+      <Col span={20}>
         <Outlet/>
       </Col>
     </Row>

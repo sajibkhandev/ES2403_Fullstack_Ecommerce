@@ -15,6 +15,10 @@ import ViewCategory from './pages/ViewCategory';
 import AddCategory from './pages/AddCategory';
 import AddSubCategory from './pages/AddSubCategory';
 import ViewSubCategory from './pages/ViewSubCategory';
+import AddProduct from './pages/AddProduct';
+import ViewProduct from './pages/ViewProduct';
+import AddVeriant from './pages/AddVeriant';
+import ViewVeriant from './pages/ViewVeriant';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,10 +29,14 @@ const router = createBrowserRouter(
     <Route path="/forgetpassword" element={<ForgetPassword/>}></Route>
     <Route path="/changepassword/:email" element={<ChangePassword/>}></Route>
     <Route path="/dashboard" element={<Home/>}>
-        <Route path="viewcategory" element={<ViewCategory/>}></Route>
         <Route path="addcategory" element={<AddCategory/>}></Route>
+        <Route path="viewcategory" element={<ViewCategory/>}></Route>
         <Route path="addsubcategory" element={<AddSubCategory/>}></Route>
         <Route path="viewsubcategory" element={<ViewSubCategory/>}></Route>
+        <Route path="addproduct" element={<AddProduct/>}></Route>
+        <Route path="viewproduct" element={<ViewProduct/>}></Route>
+        <Route path="addveriant" element={<AddVeriant/>}></Route>
+        <Route path="viewveriant" element={<ViewVeriant/>}></Route>
 
     </Route>
     </>
