@@ -1,16 +1,50 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Checkbox, Form, Input } from 'antd';
 import slugify from 'react-slugify';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import { ClassicEditor, Essentials, Paragraph, Bold, Italic } from 'ckeditor5';
-import { FormatPainter } from 'ckeditor5-premium-features';
+import { ToastContainer,toast } from 'react-toastify';
+import { useQuill } from 'react-quilljs';
+import 'quill/dist/quill.snow.css';
+import axios from 'axios'
 
 const AddProduct = () => {
   let [slug,setSlug]=useState("")
-  console.log(slug);
+  let [des,setDes]=useState("")
+  const { quill, quillRef } = useQuill();
+
+  // console.log(quill);    
+  // console.log(quillRef)
+
+ 
+    useEffect(()=>{
+      if(quill){
+        quill.on('text-change',function(){
+          setDes(quill.root.innerHTML);
+        })
+      }
+    },[quill])
+
+
   
-const onFinish = values => {
-  console.log('Success:', values);
+  const onFinish =async values => {
+     let data = await axios.post("http://localhost:8000/api/v1/product/addproduct", {
+        name:values.name,
+        des:des,
+        image:values.image,
+        regularprice:values.regularprice,
+        saleprice:values.saleprice,
+        slug:slug
+
+
+    })
+    console.log(data);
+    if(data.data.success=="Product Created"){
+      toast.success("Product Created")
+
+    }else if(data.data.error=="Product existed"){
+      toast.error("Product existed")
+
+    }
+  
 };
 const onFinishFailed = errorInfo => {
   console.log('Failed:', errorInfo);
@@ -29,18 +63,21 @@ const onFinishFailed = errorInfo => {
     
     <Form.Item
       label="Product Name"
-      name="productname"
+      name="name"
       rules={[{ required: true, message: 'Please input your Product Name!' }]}
     >
       <Input onChange={(e)=>setSlug(e.target.value)}/>
     </Form.Item>
-    <Form.Item
-      label="Product Des"
-      name="productdes"
-      rules={[{ required: true, message: 'Please input your Product Product Des!' }]}
-    >
-      <Input />
-    </Form.Item>
+    
+
+    <label className='ml-32' htmlFor="">Description:
+          <div style={{ width: 500, height: 150, marginLeft:200 ,marginBottom:100 }}>
+          <div ref={quillRef} />
+      </div>
+    </label>
+
+
+
     <Form.Item
       label="Image"
       name="image"
@@ -52,7 +89,7 @@ const onFinishFailed = errorInfo => {
 
     <Form.Item
       label="Regular Pirce"
-      name="regular"
+      name="regularprice"
       rules={[{ required: true, message: 'Please input your Regular Pirce!' }]}
     >
       <Input />
@@ -60,33 +97,34 @@ const onFinishFailed = errorInfo => {
     </Form.Item>
     <Form.Item
       label="Sale Price"
-      name="sale"
+      name="saleprice"
       rules={[{ required: true, message: 'Please input your Sale Price!' }]}
     >
       <Input />
     </Form.Item>
-
-
-    {/* <Form.Item
-      label="Slug"
-      name="slug"
-      rules={[{ required: true, message: 'Please input your Slug!' }]}
-    >
-      <Input defaultValue={slugify(slug)}/>
-    </Form.Item> */}
+    
     <label className='ml-32' htmlFor="slug"> Slug: 
     <input className='border border-[#afadad] rounded-md ml-10 py-1 px-3 w-[66%] mb-10' id="slug" defaultValue={slugify(slug)} type="text"  disabled/>
     </label>
-
-  
-
-  
 
     <Form.Item label={null}>
       <Button type="primary" htmlType="submit">
         Submit
       </Button>
     </Form.Item>
+     <ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss={false}
+            draggable
+            pauseOnHover={false}
+            theme="light"
+            
+          />
   </Form>
   )
 }
