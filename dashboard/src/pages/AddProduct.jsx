@@ -10,6 +10,7 @@ const AddProduct = () => {
   let [slug,setSlug]=useState("")
   let [des,setDes]=useState("")
   const { quill, quillRef } = useQuill();
+  let [image,setImage]=useState('')
 
   // console.log(quill);    
   // console.log(quillRef)
@@ -29,13 +30,21 @@ const AddProduct = () => {
      let data = await axios.post("http://localhost:8000/api/v1/product/addproduct", {
         name:values.name,
         des:des,
-        image:values.image,
+        image:image,
         regularprice:values.regularprice,
         saleprice:values.saleprice,
         slug:slug
 
 
-    })
+    },
+    {
+      headers:{
+        "Content-Type":"multipart/form-data"
+      }
+    }
+
+  
+  )
     console.log(data);
     if(data.data.success=="Product Created"){
       toast.success("Product Created")
@@ -49,8 +58,13 @@ const AddProduct = () => {
 const onFinishFailed = errorInfo => {
   console.log('Failed:', errorInfo);
 }
+let handleImage=(e)=>{
+  setImage(e.target.files[0]);
+  
+}
   return (
     <Form
+    
     name="basic"
     labelCol={{ span: 8 }}
     wrapperCol={{ span: 16 }}
@@ -83,7 +97,7 @@ const onFinishFailed = errorInfo => {
       name="image"
       rules={[{ required: true, message: 'Please input your Product Image!' }]}
     >
-      <Input type='file'/>
+      <Input onChange={handleImage} type='file'/>
     </Form.Item>
 
 

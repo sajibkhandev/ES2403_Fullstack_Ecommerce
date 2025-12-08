@@ -5,6 +5,7 @@ const route  = require('./route')
 const cors =require('cors')
 const mongodbConfig = require('./dbConfig/mongodbConfig')
 const port = 8000
+const path =require('path')
 
 
 mongodbConfig()
@@ -13,6 +14,7 @@ mongodbConfig()
 app.use(cors())
 app.use(express.json())
 app.use(route)
+app.use('/uploads',express.static(path.join(__dirname,"uploads")))
 
 
 
