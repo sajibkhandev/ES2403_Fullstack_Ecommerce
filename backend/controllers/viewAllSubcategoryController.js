@@ -1,9 +1,11 @@
 const SubCategory=require('../models/subCategorySchema')
 
 const viewAllSubcategoryController=async (req,res)=>{
+    // console.log(req.query.slug);
+    
 
 
-    let subcategory=await SubCategory.find({categoryId:"691de382fb99541cd3a22cb8"})
+    let subcategory=await SubCategory.find({categoryId:req.query.slug})
     res.send(subcategory)
    
     

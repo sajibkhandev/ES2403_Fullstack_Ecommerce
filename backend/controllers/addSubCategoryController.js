@@ -1,4 +1,5 @@
 let Subcategory=require('../models/subCategorySchema')
+let Category=require('../models/categorySchema')
 
 
 let addSubCategoryController=async(req,res)=>{
@@ -18,6 +19,13 @@ let addSubCategoryController=async(req,res)=>{
     })
     subcategory.save()
     res.send({success:"SubCategory has been Created"})
+
+    await Category.findOneAndUpdate({_id:categoryId},{ $push: { subcategorylist: subcategory._id} })
+
+
+
+
+
 
    }
 

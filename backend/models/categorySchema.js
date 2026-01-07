@@ -10,7 +10,14 @@ const categorySchema=new Schema({
     ownerId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Userlist"
-    }
+    },
+    subcategorylist:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Subcategory"
+
+        }
+    ]
     
    
 
