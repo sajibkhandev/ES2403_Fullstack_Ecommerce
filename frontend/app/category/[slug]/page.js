@@ -11,7 +11,7 @@ const Category = async ({ params }) => {
   
   return (
     posts.map(item=>(
-      <ul>
+      <ul key={item._id}>
         <li>{item.name}</li>
       </ul>
     ))

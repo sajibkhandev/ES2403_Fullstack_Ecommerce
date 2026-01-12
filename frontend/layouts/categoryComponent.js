@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap'
 const CategoryComponent =async () => {
      const data = await fetch('http://localhost:8000/api/v1/product/viewcategory')
     const posts = await data.json()
-    console.log(posts);
+    // console.log(posts);
     
     
     
