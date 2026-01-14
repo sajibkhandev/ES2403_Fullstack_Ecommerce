@@ -16,6 +16,7 @@ const NavbarComponent = () => {
           <Nav className="mx-auto gap-4">
             <Link href='/about'>About</Link>
             <Link href="/service">Serviec</Link>
+            <Link href="/cart">Cart</Link>
             <Nav.Link href="#link">Login</Nav.Link>
             <Nav.Link href="#link">Sign In</Nav.Link>
             

@@ -11,6 +11,7 @@ const addVeriantController = require('../../controllers/addVeriantController')
 const viewProuctController = require('../../controllers/viewProuctController')
 const viewAllSubcategoryController = require('../../controllers/viewAllSubcategoryController')
 const addAddToCartController = require('../../controllers/addAddToCartController')
+const viewAddToCartController = require('../../controllers/viewAddToCartController')
 
 
 const storage = multer.diskStorage({
@@ -42,6 +43,7 @@ _.get('/viewcategory',viewCategoryControlle)
 _.get('/viewsubcategory',viewSubCategoryController)
 _.get('/viewproduct',viewProuctController)
 _.get('/viewallsubcategory',viewAllSubcategoryController)
+_.get('/viewaddtocart',viewAddToCartController)
 
 
 
