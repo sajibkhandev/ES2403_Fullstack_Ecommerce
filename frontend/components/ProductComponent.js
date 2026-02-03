@@ -9,7 +9,7 @@ const ProductComponent =async () => {
 //   console.log(posts);
   
     return (
-        <CardComponent allPro={posts}/>
+        <CardComponent  allPro={posts}/>
        
     )
 }

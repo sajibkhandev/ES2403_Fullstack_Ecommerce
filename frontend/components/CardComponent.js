@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Link from 'next/link';
 
 const CardComponent = ({ allPro }) => {
     // console.log(allPro);
@@ -38,11 +39,11 @@ const CardComponent = ({ allPro }) => {
             <Row>
                 {
                     allPro.map(item => (
-                        <Col xs lg="3">
+                        <Col key={item._id} xs lg="3">
                             <Card style={{ width: '18rem' }}>
                                 <Card.Img variant="top" src={`http://localhost:8000${item.image}`} />
                                 <Card.Body>
-                                    <Card.Title>{item.name}</Card.Title>
+                                    <Link href={`/product/${item._id}`}><Card.Title>{item.name}</Card.Title></Link>
                                     <Card.Text>
                                         {item.saleprice
                                             ?

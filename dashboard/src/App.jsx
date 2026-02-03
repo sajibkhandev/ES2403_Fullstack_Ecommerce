@@ -19,6 +19,8 @@ import AddProduct from './pages/AddProduct';
 import ViewProduct from './pages/ViewProduct';
 import AddVeriant from './pages/AddVeriant';
 import ViewVeriant from './pages/ViewVeriant';
+import AddDiscount from './pages/AddDiscount';
+import ViewDiscount from './pages/ViewDiscount';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -37,6 +39,8 @@ const router = createBrowserRouter(
         <Route path="viewproduct" element={<ViewProduct/>}></Route>
         <Route path="addveriant" element={<AddVeriant/>}></Route>
         <Route path="viewveriant" element={<ViewVeriant/>}></Route>
+        <Route path="adddiscount" element={<AddDiscount/>}></Route>
+        <Route path="viewdiscount" element={<ViewDiscount/>}></Route>
 
     </Route>
     </>

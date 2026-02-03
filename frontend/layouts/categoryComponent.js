@@ -12,7 +12,7 @@ const CategoryComponent =async () => {
     
   return (
     <Container>
-      <div className='flex gap-x-6 my-10'>
+      {/* <div className='flex gap-x-6 my-10'>
         {
         posts.map(item=>(
 
@@ -24,7 +24,7 @@ const CategoryComponent =async () => {
               
               
                 
-                   <li className='w-[100px] py-2'>{item2.name}</li>
+                   <li key={item2._id} className='w-[100px] py-2'>{item2.name}</li>
                
               ))
             }
@@ -33,7 +33,7 @@ const CategoryComponent =async () => {
         ))
       }
       </div>
-      
+       */}
 
       
     </Container>

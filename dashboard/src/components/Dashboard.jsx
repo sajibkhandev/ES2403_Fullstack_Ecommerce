@@ -90,8 +90,8 @@ const items = [
     label: 'Discount',
     icon: <SettingOutlined />,
     children: [
-      { key: '15', label: 'Add Discount' },
-      { key: '16', label: 'View Discount' },
+      { key: '/dashboard/adddiscount', label: 'Add Discount' },
+      { key: '/dashboard/viewdiscount', label: 'View Discount' },
       
     ],
   },
