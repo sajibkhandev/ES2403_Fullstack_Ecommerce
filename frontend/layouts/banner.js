@@ -11,7 +11,7 @@ const Bannar = () => {
         <Carousel>
           <Carousel.Item>
             <Image
-              src="http://localhost:8000/uploads/1765985728658-838233153-bb26b148-a62c-4ab0-b4c9-b90e253e49ec_BD-1976-688.jpg_2200x2200q80.jpg_.avif"
+              src="https://res.cloudinary.com/dr116ydti/image/upload/v1770648317/samples/coffee.jpg"
               alt="Picture of the author"
              width={1920}
               height={500}
@@ -24,7 +24,7 @@ const Bannar = () => {
           </Carousel.Item>
           <Carousel.Item>
              <Image
-              src="http://localhost:8000/uploads/1765985042524-367661701-pexels-karola-g-5632369.jpg"
+              src="https://res.cloudinary.com/dr116ydti/image/upload/v1770648313/samples/balloons.jpg"
               alt="Picture of the author"
              width={1920}
               height={500}
@@ -37,7 +37,7 @@ const Bannar = () => {
           </Carousel.Item>
           <Carousel.Item>
            <Image
-              src="http://localhost:8000/uploads/1765985728658-838233153-bb26b148-a62c-4ab0-b4c9-b90e253e49ec_BD-1976-688.jpg_2200x2200q80.jpg_.avif"
+              src="https://res.cloudinary.com/dr116ydti/image/upload/v1770648303/samples/bike.jpg"
               alt="Picture of the author"
              width={1920}
               height={500}

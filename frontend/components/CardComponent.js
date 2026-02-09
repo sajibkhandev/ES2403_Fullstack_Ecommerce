@@ -41,7 +41,7 @@ const CardComponent = ({ allPro }) => {
                     allPro.map(item => (
                         <Col key={item._id} xs lg="3">
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={`http://localhost:8000${item.image}`} />
+                                <Card.Img variant="top" src={item.image} />
                                 <Card.Body>
                                     <Link href={`/product/${item._id}`}><Card.Title>{item.name}</Card.Title></Link>
                                     <Card.Text>

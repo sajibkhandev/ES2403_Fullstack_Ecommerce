@@ -1,9 +1,14 @@
+const cloudinaryMiddlewar = require('../middlewars/cloudinary');
 let Product=require('../models/productSchema')
 
 
 let addProductController=async(req,res)=>{
     let {name,des,image,saleprice,regularprice,slug}=req.body
-    // console.log(req.file.filename);
+    // console.log(req.file.path);
+
+    let imageUrl= await cloudinaryMiddlewar(req.file.path)
+    console.log(imageUrl.secure_url);
+    
     
 
     let existingProduct= await Product.find({name:name})
@@ -13,7 +18,7 @@ let addProductController=async(req,res)=>{
         let product=new Product({
             name,
             des,
-            image:`/uploads/${req.file.filename}`,
+            image:imageUrl.secure_url,
             saleprice,
             regularprice
             ,slug
